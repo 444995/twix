@@ -70,8 +70,6 @@ class UserDataExtractor:
         try:
             response = requests.get(API_URL, params=params, headers=headers)
             response.raise_for_status()
-            with open("twix/response.json", "w") as f:
-                f.write(json.dumps(response.json(), indent=4))
             user_data = response.json().get("data", {}).get("user", {}).get("result")
             if not user_data:
                 raise UserDataExtractionError(f"Failed to extract user data for {username} from the response")
