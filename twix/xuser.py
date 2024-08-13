@@ -1,21 +1,21 @@
 from .xscraper import XScraper
 
 class XUser:
-    def __init__(self, username):
+    def __init__(self, screen_name):
         self._scraper = XScraper()
-        self._user_data = self._scraper.get_user_info(username)
+        self._user_data = self._scraper.get_user_info(screen_name)
 
     def __str__(self):
         return f"XUser: {self.name} (@{self.screen_name})"
 
     def __repr__(self):
-        return f"XUser(username='{self.screen_name}')"
+        return f"XUser(screen_name='{self.screen_name}')"
 
     def to_dict(self):
         return self._user_data
 
     @property
-    def id(self):
+    def user_id(self):
         return self._user_data.get('id')
 
     @property
@@ -25,6 +25,10 @@ class XUser:
     @property
     def screen_name(self):
         return self._user_data.get('screen_name')
+
+    @property
+    def tweets(self):
+        return self._user_data.get('tweets')
 
     @property
     def description(self):
@@ -87,8 +91,8 @@ class XUser:
         return self._user_data.get('is_identity_verified')
 
     @property
-    def highlighted_tweet_count(self):
-        return self._user_data.get('highlighted_tweet_count')
+    def highlighted_tweets_count(self):
+        return self._user_data.get('highlighted_tweets_count')
 
     @property
     def subscriptions_count(self):
