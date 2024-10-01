@@ -4,12 +4,10 @@ twix is a Python library for scraping user data and tweets from X (formerly Twit
 
 ## Installation
 
-To install twix, follow these steps:
+To install twix, do this:
 
 ```bash
-git clone https://github.com/444995/twix.git
-cd twix
-pip install .
+pip install git+https://github.com/444995/twix.git
 ```
 
 ## Usage
